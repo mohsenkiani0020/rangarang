@@ -60,7 +60,7 @@ function Navbar() {
             <div className="flex items-center gap-5">
               {navItems.map((item) => {
                 return (
-                  <div className="flex justify-center items-center gap-1">
+                  <div key={item.title} className="flex justify-center items-center gap-1">
                     {item.icon}
                     <a className="text-gray-600">{item.title}</a>
                   </div>
