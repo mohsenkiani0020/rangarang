@@ -1,6 +1,6 @@
 // انواع پایه
 type InputType = "Text" | "Textarea" | "Dropdown" | "File" | "CheckBox" | "Radio" | "MultiSelect";
-type Currency = "ریال" | "تومان" | "دلار";
+type Currency = "تومان" | "ریال" | "دلار";
 
 // قوانین اعتبارسنجی
 interface ValidationRule {
@@ -73,7 +73,7 @@ interface PriceRule {
 }
 
 // ساختار اصلی فرم محصول
-interface ProductForm {
+export interface ProductForm {
   title: string;
   description: string;
   basePrice: number;

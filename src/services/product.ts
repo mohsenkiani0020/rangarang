@@ -1,3 +1,4 @@
+import { ProductForm } from "@/models/productModel";
 import axios from "axios";
 class Product {
   private axiosInstance = axios.create({

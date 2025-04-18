@@ -7,19 +7,20 @@ import {
   Square2StackIcon,
   Square3Stack3DIcon,
 } from "@heroicons/react/16/solid";
+import { layoutOrderPropsModel } from "@/models/layoutOrderPropsModel";
 
-function ProductDetailsSidebar() {
+function ProductDetailsSidebar({data}:layoutOrderPropsModel) {
   return (
-    <div className="col-span-3 flex flex-col justify-center gap-5">
-      <div className="bg-red-500/90 rounded-2xl p-6 flex flex-col gap-5">
+    <div className="col-span-3 flex flex-col items-center gap-5 ">
+      <div className="bg-red-500/90 rounded-2xl p-6 flex flex-col gap-5 ">
         <div className="flex justify-between items-center  text-white">
           <div className="flex items-center gap-1">
             <CurrencyDollarIcon className="text-whit w-6 h-6" />
             <span>قیمت :</span>
           </div>
           <span>
-            <span className="font-bold">0</span>
-            <span> ریال</span>
+            <span className="font-bold">{data.basePrice}</span>
+            <span> {data.currency}</span>
           </span>
         </div>
         <div className="flex justify-between items-center text-white  border-b-1 pb-6 border-gray-200">
