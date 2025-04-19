@@ -12,7 +12,7 @@ import { layoutOrderPropsModel } from "@/models/layoutOrderPropsModel";
 function ProductDetailsSidebar({data}:layoutOrderPropsModel) {
   return (
     <div className="col-span-3 flex flex-col items-center gap-5 ">
-      <div className="bg-red-500/90 rounded-2xl p-6 flex flex-col gap-5 ">
+      <div className="bg-red-500/90 rounded-2xl p-6 flex flex-col gap-5 w-full">
         <div className="flex justify-between items-center  text-white">
           <div className="flex items-center gap-1">
             <CurrencyDollarIcon className="text-whit w-6 h-6" />
@@ -42,7 +42,7 @@ function ProductDetailsSidebar({data}:layoutOrderPropsModel) {
           <span>راهنمای سفارش</span>
         </span>
       </div>
-      <Button variant="outline" className="text-red-600 py-6">
+      <Button variant="outline" className="text-red-600 py-6 w-full">
         <PencilSquareIcon className="w-6 h-6"/> سفارش طراحی آنلاین
       </Button>
     </div>
