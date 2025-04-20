@@ -15,7 +15,7 @@ class Product {
       return response.data;
   
     } catch (error) {
-      throw new Error("Failed to get products");
+      throw new Error("عدم دریافت اطلاعات از سرور");
     }
   }
 

@@ -19,7 +19,7 @@ interface FieldStyle {
 }
 
 // گزینه‌های انتخابی
-interface Option {
+export interface Option {
   display: string;
   value: string;
   priceFactor: number;
@@ -40,7 +40,7 @@ interface DependentOptionConfig {
 }
 
 // فیلدهای فرم
-interface Field {
+export interface Field {
   fieldId: string;
   label: string;
   inputType: InputType;

@@ -11,7 +11,7 @@ import { layoutOrderPropsModel } from "@/models/layoutOrderPropsModel";
 
 function ProductDetailsSidebar({data}:layoutOrderPropsModel) {
   return (
-    <div className="col-span-3 flex flex-col items-center gap-5 ">
+    <div className="col-span-2 flex flex-col items-center gap-5 ">
       <div className="bg-red-500/90 rounded-2xl p-6 flex flex-col gap-5 w-full">
         <div className="flex justify-between items-center  text-white">
           <div className="flex items-center gap-1">
