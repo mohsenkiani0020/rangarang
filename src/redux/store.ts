@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import productSlice from "@/redux/productSlice"
+import secondLevelDependency from "@/redux/secondLevelDependency"
 
 export const store = configureStore({
   reducer: {
-    product: productSlice,
+    secondLevelDependency: secondLevelDependency,
   },
 });
 

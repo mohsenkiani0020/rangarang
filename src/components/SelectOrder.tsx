@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -11,11 +11,19 @@ import {
 } from "@/components/ui/select";
 import { CheckBoxOrderProps } from "@/models/CheckBoxOrderProps";
 import FormFieldRenderer from "./FormFieldRenderer";
+import { useDispatch, useSelector } from "react-redux";
+import { handleAddSecondLevelDependency } from "@/redux/secondLevelDependency";
+import { Option } from "@/models/productModel";
+import { RootState } from "@/redux/store";
 
 function SelectOrder({ field }: CheckBoxOrderProps) {
   const [selectedValue, setSelectedValue] = useState<string>(
     String(field.defaultValue ?? "")
   );
+  const [dependency, setDependency] = useState<Option | null>()
+  console.log("mohsen", dependency);
+  const dispatch = useDispatch();
+  const data = useSelector((state : RootState) => state.secondLevelDependency.data)
 
   const selectedOption = field.options?.find(
     (opt) => opt.value === selectedValue
@@ -27,7 +35,26 @@ function SelectOrder({ field }: CheckBoxOrderProps) {
 
   const handleSelectChange = (value: string) => {
     setSelectedValue(value);
+    if (field.dependsOn === null) {
+      const option = field.options?.find((item) => {
+        return item.value === value;
+      });
+      dispatch(
+        handleAddSecondLevelDependency({
+          fieldId: field.fieldId,
+          option: option ?? null,
+        })
+      );
+    }
   };
+
+  useEffect(() => {
+    if (field.dependsOn) {
+      const matched = data.find((item) => item.fieldId === field.dependsOn);
+
+      setDependency(matched?.option ?? null);
+    }
+  }, [data, field.dependsOn ]);
 
   return (
     <>
