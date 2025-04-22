@@ -2,8 +2,6 @@ import LayoutOrder from "@/components/LayoutOrder";
 import type { Metadata } from "next";
 import productServices from "@/services/product";
 
-import { CombinedPropsModel } from "@/models/combinedPropsModel";
-
 export const metadata: Metadata = {
   title: {
     absolute: "",
@@ -14,7 +12,10 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
   params,
-}: CombinedPropsModel) {
+}: {
+  children: React.ReactNode;
+  params: Promise<{productGroupId : string , workTypeId : string}>;
+}) {
   const { productGroupId, workTypeId } = await params;
   const data = await productServices.getProducts(productGroupId, workTypeId);
 
