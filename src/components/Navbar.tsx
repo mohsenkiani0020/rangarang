@@ -44,7 +44,7 @@ function Navbar() {
     <nav className=" ">
       <Container>
         <div className="py-6 flex justify-between  items-center gap-10  flex-col lg:flex-row">
-          <Image src="/image/logo.webp" height={200} width={200} alt="logo" />
+          <Image src="/image/main/logo.webp" height={200} width={200} alt="logo" />
           <div className="w-[90%] lg:w-[50%]">
             <Input type="text" placeholder="جستوجو" className="search" />
           </div>
