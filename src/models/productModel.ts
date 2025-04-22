@@ -46,13 +46,13 @@ export interface Field {
   inputType: InputType;
   required: boolean;
   displayInDescription: boolean;
-  defaultValue: any;
+  defaultValue: boolean | string | number;
   order: number;
   description: string | null;
   enabled: boolean;
   isVisible: boolean;
   dependsOn: string | null;
-  priceImpact: any | null;
+  priceImpact: string | number | null;
   style: FieldStyle;
   options: Option[] | null;
   validationRules: ValidationRule[] | null;
@@ -69,7 +69,7 @@ interface Section {
 
 // قوانین قیمت‌گذاری
 interface PriceRule {
-
+  [key: string]: unknown;
 }
 
 // ساختار اصلی فرم محصول
