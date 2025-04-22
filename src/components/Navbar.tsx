@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "./Container";
-// import Image from "next/image";
+import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Squares2X2Icon } from "@heroicons/react/16/solid";
 import {
@@ -44,7 +44,7 @@ function Navbar() {
     <nav className=" ">
       <Container>
         <div className="py-6 flex justify-between  items-center gap-10  flex-col lg:flex-row">
-          <img src="/image/main/logo.webp" height={200} width={200} alt="logo" />
+          <Image src="/image/main/logo.png" height={200} width={200} alt="logo" />
           <div className="w-[90%] lg:w-[50%]">
             <Input type="text" placeholder="جستوجو" className="search" />
           </div>
