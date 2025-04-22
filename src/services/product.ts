@@ -1,5 +1,6 @@
 import { ProductForm } from "@/models/productModel";
 import axios from "axios";
+
 class Product {
   private axiosInstance = axios.create({
     baseURL: "https://cloud.rangarang-group.com",
@@ -10,15 +11,15 @@ class Product {
 
   async getProducts(productGroupId: string, workTypeId: string): Promise<ProductForm> {
     try {
-      let url = `/api/Order/GetForm?productGroupId=${productGroupId}&workTypeId=${workTypeId}`;
+      const url = `/api/Order/GetForm?productGroupId=${productGroupId}&workTypeId=${workTypeId}`;
       const response = await this.axiosInstance.get<ProductForm>(url);
       return response.data;
   
-    } catch (error) {
+    } catch {
       throw new Error("عدم دریافت اطلاعات از سرور");
     }
   }
-
 }
 
-export default new Product()
+const productService = new Product();
+export default productService;
