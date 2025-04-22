@@ -8,7 +8,7 @@ function RadioButtonOrder({ field }: CheckBoxOrderProps) {
       <RadioGroup
         disabled={!field.enabled}
         required={field.required}
-        defaultValue={field.defaultValue}
+        defaultValue={String(field.defaultValue)}
         className="flex  items-start"
       >
         {field.options?.map((item) => (
