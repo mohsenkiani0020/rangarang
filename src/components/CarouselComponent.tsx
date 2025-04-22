@@ -28,7 +28,7 @@ const testImage = [
 
 function CarouselComponent() {
   return (
-    <div className="px-16 w-full">
+    <div className="px-16 flex justify-center">
       <Carousel
         plugins={[
           Autoplay({
@@ -43,7 +43,7 @@ function CarouselComponent() {
       >
         <CarouselContent>
           {testImage.map((image) => (
-            <CarouselItem key={image.id} className="md:basis-1/2 lg:basis-full">
+            <CarouselItem key={image.id} className="basis-full">
               <div className="p-1">
                 <Image
                   src={image.src}

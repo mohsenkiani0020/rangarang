@@ -1,4 +1,3 @@
-"use client";
 
 import { Input } from "@/components/ui/input";
 
@@ -10,17 +9,18 @@ import TooltipLabel from "@/components/TooltipLabel";
 import CheckBoxOrder from "@/components/CheckBoxOrder";
 import SelectOrder from "@/components/SelectOrder";
 import { CheckBoxOrderProps } from "@/models/CheckBoxOrderProps";
+import RadioButtonOrder from "./RadioButtonOrder";
 
 function FormFieldRenderer({ field }: CheckBoxOrderProps) {
-  const wrapperClass = `grid grid-cols-12 gap-7 ${
+  const wrapperClass = ` ${
     field.isVisible ? "" : "hidden"
   }`;
 
   const renderLabel = () =>
     field.description ? (
-      <TooltipLabel data={field} className="text-sm col-span-2" />
+      <TooltipLabel data={field} className="text-sm mb-2" />
     ) : (
-      <h3 className="text-sm col-span-2">{field.label}</h3>
+      <h3 className="text-sm mb-2">{field.label} :</h3>
     );
 
   switch (field.inputType) {
@@ -28,7 +28,7 @@ function FormFieldRenderer({ field }: CheckBoxOrderProps) {
       return (
         <div className={wrapperClass} key={field.fieldId}>
           {renderLabel()}
-          <div className="col-span-10">
+          <div className="">
             <SelectOrder field={field} />
           </div>
         </div>
@@ -83,7 +83,7 @@ function FormFieldRenderer({ field }: CheckBoxOrderProps) {
     case "Radio":
       return (
         <div className={wrapperClass} key={field.fieldId}>
-          <p className="col-span-12">Radio (coming soon)</p>
+          <RadioButtonOrder field={field} />
         </div>
       );
 

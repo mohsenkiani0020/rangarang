@@ -20,10 +20,11 @@ function SelectOrder({ field }: CheckBoxOrderProps) {
   const [selectedValue, setSelectedValue] = useState<string>(
     String(field.defaultValue ?? "")
   );
-  const [dependency, setDependency] = useState<Option | null>()
-  console.log("mohsen", dependency);
+  const [dependency, setDependency] = useState<Option | null>();
   const dispatch = useDispatch();
-  const data = useSelector((state : RootState) => state.secondLevelDependency.data)
+  const data = useSelector(
+    (state: RootState) => state.secondLevelDependency.data
+  );
 
   const selectedOption = field.options?.find(
     (opt) => opt.value === selectedValue
@@ -54,7 +55,7 @@ function SelectOrder({ field }: CheckBoxOrderProps) {
 
       setDependency(matched?.option ?? null);
     }
-  }, [data, field.dependsOn ]);
+  }, [data, field.dependsOn]);
 
   return (
     <>
@@ -63,17 +64,26 @@ function SelectOrder({ field }: CheckBoxOrderProps) {
         onValueChange={handleSelectChange}
         disabled={!field.enabled}
         required={field.required}
+        dir="rtl"
       >
         <SelectTrigger className="w-full border border-gray-300 invalid:border-red-400">
           <SelectValue placeholder={field.options?.[0]?.display ?? "Select"} />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            {field.options?.map((opt) => (
-              <SelectItem key={opt.value} value={opt.value}>
-                {opt.display}
-              </SelectItem>
-            ))}
+            {dependency?.dependentFieldOptions
+              ? dependency?.dependentFieldOptions?.[field.fieldId].options.map(
+                  (opt) => (
+                    <SelectItem key={opt.value} value={opt.value}>
+                      {opt.display}
+                    </SelectItem>
+                  )
+                )
+              : field.options?.map((opt) => (
+                  <SelectItem key={opt.value} value={opt.value}>
+                    {opt.display}
+                  </SelectItem>
+                ))}
           </SelectGroup>
         </SelectContent>
       </Select>

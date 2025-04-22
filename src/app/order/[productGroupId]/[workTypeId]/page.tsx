@@ -29,7 +29,7 @@ async function ProductId({ params }: ParamsModel) {
             <TooltipLabel data={item} size={20} className="text-gray-500 " />
           </div>
           {item.fields.map((field) => {
-            return <FormFieldRenderer field={field} />;
+            return <FormFieldRenderer field={field} key={field.fieldId}/>;
           })}
         </div>
       ))}

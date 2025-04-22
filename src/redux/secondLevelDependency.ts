@@ -1,20 +1,13 @@
-import { Option } from "@/models/productModel";
+import {
+  SecondLevelDependency,
+  SecondLevelDependencyRedux,
+} from "@/models/secondLevelDependencyRedux";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-
-interface SecondLevelDependency {
-  fieldId: string;
-  option: Option | null;
-}
-
-interface SecondLevelDependencyRedux {
-  data: SecondLevelDependency[];
-}
 
 const initialState: SecondLevelDependencyRedux = {
   data: [],
 };
-
 export const secondLevelDependency = createSlice({
   name: "secondLevelDependency",
   initialState,
@@ -35,8 +28,6 @@ export const secondLevelDependency = createSlice({
     },
   },
 });
-
-// export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
 export default secondLevelDependency.reducer;
 export const { handleAddSecondLevelDependency } = secondLevelDependency.actions;
