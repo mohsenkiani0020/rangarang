@@ -40,6 +40,7 @@ function Navbar() {
       icon: <PhoneIcon className="w-5 h-6 text-gray-700" />,
     },
   ];
+  
   return (
     <nav className=" ">
       <Container>
