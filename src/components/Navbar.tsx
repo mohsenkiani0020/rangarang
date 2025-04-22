@@ -40,12 +40,13 @@ function Navbar() {
       icon: <PhoneIcon className="w-5 h-6 text-gray-700" />,
     },
   ];
+  
   return (
     <nav className=" ">
       <Container>
-        <div className="py-6 flex justify-between  items-center gap-10 ">
-          <Image src="/image/logo.webp" height={200} width={200} alt="logo" />
-          <div className="w-[50%]">
+        <div className="py-6 flex justify-between  items-center gap-10  flex-col lg:flex-row">
+          <Image src="/image/main/logo-test.png" height={200} width={200} alt="logo" />
+          <div className="w-[90%] lg:w-[50%]">
             <Input type="text" placeholder="جستوجو" className="search" />
           </div>
           <div className="flex  justify-center items-center gap-2">
@@ -56,18 +57,18 @@ function Navbar() {
       </Container>
       <div className="flex justify-between items-center border-y border-gray-400 py-4 ">
         <Container>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-5">
+          <div className="flex items-center justify-between  flex-col lg:flex-row ">
+            <div className="flex items-center gap-5  flex-col lg:flex-row">
               {navItems.map((item) => {
                 return (
-                  <div className="flex justify-center items-center gap-1">
+                  <div key={item.title} className="flex justify-center items-center gap-1">
                     {item.icon}
                     <a className="text-gray-600">{item.title}</a>
                   </div>
                 );
               })}
             </div>
-            <div className="flex  justify-center items-center gap-1">
+            <div className="flex  justify-center items-center gap-1 mt-4 lg:mt-0">
               <span>031-3335645</span>
               <span className="rounded-full bg-red-600 p-2">
                 <Phone className="w-5 h-5 text-white" />
